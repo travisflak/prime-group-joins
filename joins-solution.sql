@@ -10,10 +10,28 @@ JOIN "line_items"
 ON "orders"."id" = "line_items"."id";
 
 --3. Which warehouses have cheetos?
+SELECT "products"."description","warehouse" FROM "warehouse_product"
+JOIN "warehouse"
+ON "warehouse"."id" = "warehouse_product"."warehouse_id"
+JOIN "products"
+ON "products"."id" = "warehouse_product"."product_id"
+WHERE "products"."description" = 'cheetos';
 
 --4. Which warehouses have diet pepsi?
+SELECT "products"."description","warehouse" FROM "warehouse_product"
+JOIN "warehouse"
+ON "warehouse"."id" = "warehouse_product"."warehouse_id"
+JOIN "products"
+ON "products"."id" = "warehouse_product"."product_id"
+WHERE "products"."description" = 'diet pepsi';
 
 --5. Get the number of orders for each customer. NOTE: It is OK if those without orders are not included in results.
+SELECT "customers"."first_name","customers"."last_name", count(*) FROM "orders"
+JOIN "addresses"
+ON "addresses"."customer_id" = "orders"."address_id"
+JOIN "customers"
+ON "customers"."id" = "addresses"."customer_id"
+GROUP BY "customers"."id";
 
 --6. How many customers do we have?
 
