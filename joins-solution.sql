@@ -5,6 +5,10 @@ ON "customers"."id" = "addresses"."id";
 
 --2. Get all orders and their line items (orders, quantity and product).
 
+SELECT * FROM "orders"
+JOIN "line_items"
+ON "orders"."id" = "line_items"."id";
+
 --3. Which warehouses have cheetos?
 
 --4. Which warehouses have diet pepsi?
