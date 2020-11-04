@@ -34,6 +34,7 @@ ON "customers"."id" = "addresses"."customer_id"
 GROUP BY "customers"."id";
 
 --6. How many customers do we have?
+SELECT count(*) FROM "customers";
 
 --7. How many products do we carry?
 
